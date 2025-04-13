@@ -84,11 +84,43 @@ The system employs sophisticated feature engineering:
 
 ## Performance
 
-The model achieves competitive performance in emotion classification with:
+The model achieves strong performance in emotion classification with:
+- Overall accuracy: 67.26%
+- Macro-average F1-score: 0.67
 - GPU-accelerated training
 - Batch processing
 - Balanced class weights
 - Early stopping to prevent overfitting
+
+Detailed performance metrics:
+
+```
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.75      0.65      0.70     24238  # Sadness
+           1       0.78      0.63      0.69     28214  # Joy
+           2       0.47      0.78      0.59      6911  # Love
+           3       0.62      0.70      0.66     11463  # Anger
+           4       0.61      0.68      0.64      9542  # Fear
+           5       0.59      0.90      0.71      2994  # Surprise
+
+    accuracy                           0.67     83362
+   macro avg       0.64      0.72      0.67     83362
+weighted avg       0.70      0.67      0.68     83362
+```
+
+Key observations:
+- Strong performance on Sadness (F1: 0.70) and Joy (F1: 0.69)
+- Excellent recall for Surprise (0.90)
+- High precision for Joy (0.78) and Sadness (0.75)
+- Balanced performance across major emotion categories
+
+### Confusion Matrix Visualization
+
+![Confusion Matrix](confusion_matrix.png)
+
+The confusion matrix visualization shows the model's prediction patterns across different emotion categories. The diagonal elements represent correct predictions, while off-diagonal elements show misclassifications. Darker colors indicate higher numbers of predictions.
 
 ## Dataset
 
